@@ -8,8 +8,8 @@ namespace CdList.Objects
     private string _artist;
     private int _id;
     private static List<Cd> _instances = new List<Cd> {};
-
     public Cd (string title, string artist)
+
     {
       _title = title;
       _artist = artist;

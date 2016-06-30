@@ -23,6 +23,21 @@ namespace CdList.Objects
         Cd cd = Cd.Find(parameters.id);
         return View["/Cd.cshtml", cd];
       };
+      Get["/cds/searchbyartist"] = _ =>{
+        return View["Cd_search.cshtml"];
+      };
+      Post["/searchbyartist"] = _ =>{
+        List<Cd> allCds = Cd.GetAll();
+
+
+        Dictionary<string, object> SearchCds = new Dictionary<string, object>();
+        SearchCds.Add("allCdsList", allCds);
+
+        Search searchTerm = new Search(Request.Form["cd-artist-search"]);
+        SearchCds.Add("searchTerm", searchTerm);
+
+        return View["Cds_by_artist.cshtml", SearchCds];
+      };
       Post["/cds"] = _ => {
         Cd newCd = new Cd(Request.Form["cd-title"], Request.Form["cd-artist"]);
         List<Cd> allCds = Cd.GetAll();
