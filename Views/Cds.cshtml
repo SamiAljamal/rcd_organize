@@ -1,11 +1,17 @@
-<h1>Cds</h1>
-@if (@Model.Count == 0)
-{
-  <h3>No Cds have been added yet!</h3>
-}
-@foreach (var cd in Model)
-{
-  <h3><a href='/cds/@cd.GetId()'>"@cd.GetTitle()" by @cd.GetArtist()</a></h3>
-}
-<p><a href='/cds/new'>Add a new Cd</a></p>
-<p><a href="/cds/searchbyartist"> Search by Artist</a></p>
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <div class="container">
+    <h1>CD List</h1>
+    @if (@Model.Count == 0)
+    {
+      <h3>No Cds have been added yet!</h3>
+    }
+    @foreach (var cd in Model)
+    {
+      <h3><a href='/cds/@cd.GetId()'>"@cd.GetTitle()" by @cd.GetArtist()</a></h3>
+    }
+    <p><a href='/cds/new'>Add a new Cd</a></p>
+    <p><a href="/cds/searchbyartist"> Search by Artist</a></p>
+  </div>
+</html>

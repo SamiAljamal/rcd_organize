@@ -1,12 +1,18 @@
-<h1>Cds by @Model["searchTerm"].GetTerm()</h1>
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <div class="container">
+    <h1>CDs by @Model["searchTerm"].GetTerm()</h1>
 
-@foreach (var cd in @Model["allCdsList"])
-{
-  if (@cd.GetArtist() == @Model["searchTerm"].GetTerm())
-  {
-    <h3>"@cd.GetTitle()"</h3>
-  }
+    @foreach (var cd in @Model["allCdsList"])
+    {
+      if (@cd.GetArtist() == @Model["searchTerm"].GetTerm())
+      {
+        <h3>"@cd.GetTitle()"</h3>
+      }
 
-}
-<p><a href='/cds/new'>Add a new Cd</a></p>
-<p><a href='/cds/searchbyartist'>Search by artist</a></p>
+    }
+    <p><a href='/cds/new'>Add a new Cd</a></p>
+    <p><a href='/cds/searchbyartist'>Search by artist</a></p>
+  </div>
+</html>
